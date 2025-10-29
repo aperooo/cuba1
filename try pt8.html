@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Despicable Me — Fan Page (local)</title>
+  <meta name="description" content="Despicable Me — movie page replica (static)"/>
+
+  <!-- Simple reset -->
+  <style>
+    :root{
+      --accent:#f7c948;
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxwidth:1000px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071022 0%, #0b1220 55%, #071426 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:24px;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--maxwidth);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:72px;
+      height:72px;
+      background:linear-gradient(135deg,var(--accent),#ffb86b);
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#06202b;
+      box-shadow:0 10px 30px rgba(0,0,0,0.45);
+      flex:0 0 72px;
+    }
+    nav{margin-left:auto; display:flex; gap:12px; align-items:center}
+    nav a{color:var(--muted); text-decoration:none; font-size:0.95rem}
+    nav a:hover{color:#fff}
+
+    main{
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* Left column */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 6px 18px rgba(2,8,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .hero{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+    }
+    .poster{
+      width:220px;
+      min-width:160px;
+      height:320px;
+      background: linear-gradient(180deg,#111827,#0b1220);
+      border-radius:10px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      padding:12px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+    .meta{
+      flex:1;
+    }
+    h1{margin:0 0 6px 0; font-size:28px}
+    .sub{color:var(--muted); font-size:0.95rem; margin-bottom:12px}
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+    }
+    .btn{
+      background:var(--accent);
+      color:#042027;
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(247,201,72,0.12);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    .synopsis{
+      margin-top:16px;
+      color:#d5e6f6;
+    }
+
+    /* Characters list */
+    .chars{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .char{
+      background:var(--glass);
+      border-radius:10px;
+      padding:10px;
+      min-height:110px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .char .ava{
+      width:56px;
+      height:56px;
+      background:linear-gradient(180deg,#112131,#0b1520);
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      color:var(--accent);
+    }
+    .char h4{margin:0; font-size:0.98rem}
+    .char p{margin:4px 0 0 0; color:var(--muted); font-size:0.85rem}
+
+    /* Right column */
+    aside .card{padding:14px}
+    .info-list{list-style:none; padding:0; margin:0; display:grid; gap:8px}
+    .info-list li{display:flex; justify-content:space-between; color:var(--muted)}
+    .gallery{margin-top:12px; display:grid; grid-template-columns:repeat(2,1fr); gap:8px}
+    .thumb{
+      height:120px;
+      border-radius:8px;
+      background:linear-gradient(180deg,#08121a,#061018);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:0.85rem;
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width:940px){
+      main{grid-template-columns:1fr; }
+      .poster{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">IM</div>
+      <div>
+        <div style="font-weight:700;font-size:14px">Illumination — Fan Replica</div>
+        <div style="color:var(--muted);font-size:13px">Despicable Me (2010) — static page</div>
+      </div>
+
+      <nav>
+        <a href="#">Films</a>
+        <a href="#">Studio</a>
+        <a href="#">Careers</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Left / main content -->
+      <section>
+        <div class="card hero">
+          <div class="poster">
+            <!-- Placeholder poster -->
+            <div style="text-align:center">
+              <div style="font-weight:800; font-size:18px; color:#fefefe;">DESPICABLE<br>ME</div>
+              <div style="font-size:12px; margin-top:8px; color:var(--muted)">Poster placeholder</div>
+            </div>
+          </div>
+
+          <div class="meta">
+            <h1>Despicable Me</h1>
+            <div class="sub">After stealing the moon to become the world’s greatest supervillain, Gru adopts three adorable girls as part of his scheme.</div>
+
+            <div class="actions" role="toolbar">
+              <button class="btn" onclick="playTrailer()">Play Trailer ▶</button>
+              <button class="btn secondary" onclick="toggleShare()">Share</button>
+              <button class="btn secondary" onclick="downloadInfo()">Download</button>
+            </div>
+
+            <p class="synopsis">
+              In a “white picket fence” suburban neighborhood sits a black house with a dead lawn. Unbeknownst to the neighbors, hidden beneath this home is a secret hideout.
+              Surrounded by a small army of minions, Gru plans the biggest heist in the history of the world — to steal the moon.
+            </p>
+
+            <h3 style="margin-top:14px">Characters</h3>
+            <div class="chars" aria-label="Characters list">
+              <div class="char">
+                <div class="ava">G</div>
+                <div>
+                  <h4>GRU</h4>
+                  <p>The world’s greatest supervillain, bent on being bad.</p>
+                </div>
+              </div>
+
+              <div class="char">
+                <div class="ava">M</div>
+                <div>
+                  <h4>MARGO</h4>
+                  <p>The ultra-dependable oldest child.</p>
+                </div>
+              </div>
+
+              <div class="char">
+                <div class="ava">E</div>
+                <div>
+                  <h4>EDITH</h4>
+                  <p>The mischievous troublemaker of the gang.</p>
+                </div>
+              </div>
+
+              <div class="char">
+                <div class="ava">A</div>
+                <div>
+                  <h4>AGNES</h4>
+                  <p>Sweet and innocent, Agnes wins Gru’s heart.</p>
+                </div>
+              </div>
+
+              <div class="char">
+                <div class="ava">M</div>
+                <div>
+                  <h4>MINIONS</h4>
+                  <p>Gru’s bumbling, mischievous henchmen.</p>
+                </div>
+              </div>
+
+              <div class="char">
+                <div class="ava">D</div>
+                <div>
+                  <h4>DR. NEFARIO</h4>
+                  <p>Gru’s trusted and scatterbrained scientist.</p>
+                </div>
+              </div>
+
+              <div class="char">
+                <div class="ava">V</div>
+                <div>
+                  <h4>VECTOR</h4>
+                  <p>A young rival villain armed with family money.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery / extended section -->
+        <div class="card" style="margin-top:14px;">
+          <h3 style="margin:0 0 10px 0">Gallery</h3>
+          <div style="color:var(--muted); font-size:0.95rem">Click thumbnails to enlarge (demo).</div>
+          <div class="gallery" style="margin-top:10px">
+            <div class="thumb" onclick="openImage('gru')">GRU</div>
+            <div class="thumb" onclick="openImage('margo')">MARGO</div>
+            <div class="thumb" onclick="openImage('edith')">EDITH</div>
+            <div class="thumb" onclick="openImage('agnes')">AGNES</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <h3 style="margin:0 0 8px 0">Synopsis (extended)</h3>
+          <p style="color:var(--muted); margin:0">
+            Gru's life of villainy is interrupted when he meets three orphaned sisters who unknowingly begin to change him. Balancing wicked plans with unexpected fatherhood, Gru confronts an inner tug-of-war between being bad and becoming a dad.
+          </p>
+        </div>
+      </section>
+
+      <!-- Right / aside -->
+      <aside>
+        <div class="card">
+          <h3 style="margin:0 0 10px 0">Movie Info</h3>
+          <ul class="info-list">
+            <li><span>Year</span><strong>2010</strong></li>
+            <li><span>Running time</span><strong>95 min</strong></li>
+            <li><span>Director</span><strong>Chris Renaud & Pierre Coffin</strong></li>
+            <li><span>Genre</span><strong>Animation / Comedy / Family</strong></li>
+            <li><span>Studio</span><strong>Illumination</strong></li>
+          </ul>
+
+          <div style="margin-top:12px">
+            <h4 style="margin:0 0 8px 0">Where to watch</h4>
+            <p style="margin:0;color:var(--muted)">Check your local streaming services or rental platforms for availability.</p>
+          </div>
+
+          <div style="margin-top:12px">
+            <h4 style="margin:0 0 8px 0">Social</h4>
+            <div style="display:flex; gap:8px">
+              <button class="btn secondary" onclick="window.open('https://www.facebook.com','_blank')">Facebook</button>
+              <button class="btn secondary" onclick="window.open('https://www.twitter.com','_blank')">Twitter</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 style="margin:0 0 8px 0">Quick facts</h4>
+          <p style="margin:0;color:var(--muted)">A family-friendly story about transformation, found family, and Gru's struggle between villainy and fatherhood.</p>
+        </div>
+
+        <footer>
+          © Fan replica — not affiliated with Illumination or Universal.
+        </footer>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    function playTrailer(){
+      alert("Demo: replace this with a real trailer URL or embedded player. (You can insert an <https://youtu.be/3Sa_BfX4cgM> to YouTube.)");
+    }
+    function toggleShare(){
+      const url = window.location.href;
+      navigator.clipboard?.writeText(url).then(()=> alert("Page URL copied to clipboard (demo)."));
+    }
+    function downloadInfo(){
+      const blob = new Blob([document.documentElement.outerHTML], {type: "text/html"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = "despicable-me.html";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+    function openImage(id){
+      alert("Image preview demo: " + id + ". Replace with real images or a lightbox.");
+    }
+  </script>
+</body>
+</html>
